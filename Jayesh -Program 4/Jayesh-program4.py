@@ -11,20 +11,26 @@ Count = 1
 OPERATIONS = {}
 
 def push(data:list):
+
 	STACK.append(data)
 
 
 def pull():
-	if len(STACK) != 0:
+
+	if len(STACK):
 		return STACK.pop()
+
 	return "Underflow"
 	
 
 def operations(ch):
+
 	global Count
 	op = 'Operations'
+
 	if ch == 1:
 		op = 'Push'
+
 	if ch == 2:
 		op = 'Pull'
 	
@@ -36,14 +42,15 @@ def operations(ch):
 
 
 while True:
-	ch = int(input("1. Push :  \n 2. Pull :  \n 3. Operations : \n"))
+	ch = int(input("1. Push :  \n2. Pull :  \n3. Display Operations :  \n"))
 	if ch == 1:
 		
-		name = input('Name of book')
-		price = float(input('Price of book'))
-		author = input('Author')
+		name = input('Name of book : ')
+		price = float(input('Price of book : '))
+		author = input('Author : ')
 		data = [name,price,author]
 		push(data)
+		
 	if ch == 2:
 		
 		data = pull()
@@ -54,6 +61,6 @@ while True:
 
 	operations(ch)
 	
-	ch = input('Add another book ? y/n').lower()
+	ch = input('Add another book ? y/n : ').lower()
 	if ch not in ['yes','y']:
 		break
